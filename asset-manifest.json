@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/fotoplusworld/static/css/main.92ea72f5.css",
+    "main.js": "/fotoplusworld/static/js/main.defac012.js",
+    "static/js/787.454d30cd.chunk.js": "/fotoplusworld/static/js/787.454d30cd.chunk.js",
+    "static/media/edited_house_1.jpg": "/fotoplusworld/static/media/edited_house_1.44ee79997ff9a4500890.jpg",
+    "static/media/unedited_house_1.jpg": "/fotoplusworld/static/media/unedited_house_1.fe43764fd03c6f270ee1.jpg",
+    "static/media/headerimg.png": "/fotoplusworld/static/media/headerimg.69678c5c1284bd2f223d.png",
+    "static/media/headerimg2.png": "/fotoplusworld/static/media/headerimg2.3d4e6b1c7573f037f4ba.png",
+    "static/media/item_removal_1_after.jpg": "/fotoplusworld/static/media/item_removal_1_after.306636193d6c6334e095.jpg",
+    "static/media/meeting.png": "/fotoplusworld/static/media/meeting.4eb36011e7beca8a3332.png",
+    "static/media/item_removal_1_before.jpg": "/fotoplusworld/static/media/item_removal_1_before.6ee2f51b3badec01def4.jpg",
+    "static/media/virtual_staging_after_1.jpg": "/fotoplusworld/static/media/virtual_staging_after_1.d31a0a11cd07e7f272a9.jpg",
+    "static/media/virtual_staging_before_1.jpg": "/fotoplusworld/static/media/virtual_staging_before_1.a804c4bb9c3c21167a1d.jpg",
+    "static/media/virtual-assistant.jpg": "/fotoplusworld/static/media/virtual-assistant.96682f035d825858b1ba.jpg",
+    "static/media/2D_to_3D_after_1.jpg": "/fotoplusworld/static/media/2D_to_3D_after_1.6f4bb1e40b5c54cfe8aa.jpg",
+    "static/media/sketch_to_2d_after_1.jpg": "/fotoplusworld/static/media/sketch_to_2d_after_1.acb8d9ec73c4bd0a271b.jpg",
+    "static/media/2D_to_3D_Before_1.jpg": "/fotoplusworld/static/media/2D_to_3D_Before_1.b2447f3df5a2135ac96d.jpg",
+    "static/media/mockups.png": "/fotoplusworld/static/media/mockups.8da1cc5cb299764ebbdf.png",
+    "static/media/sketch_to_2d_before_1.png": "/fotoplusworld/static/media/sketch_to_2d_before_1.1a188c88bd5dd36a940e.png",
+    "static/media/foto-plus-logo-white.png": "/fotoplusworld/static/media/foto-plus-logo-white.12a1b058383c1906065d.png",
+    "index.html": "/fotoplusworld/index.html",
+    "main.92ea72f5.css.map": "/fotoplusworld/static/css/main.92ea72f5.css.map",
+    "main.defac012.js.map": "/fotoplusworld/static/js/main.defac012.js.map",
+    "787.454d30cd.chunk.js.map": "/fotoplusworld/static/js/787.454d30cd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92ea72f5.css",
+    "static/js/main.defac012.js"
+  ]
+}
