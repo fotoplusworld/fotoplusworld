@@ -4,9 +4,8 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
-  Typography,
+  Link as MUILink,
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -69,8 +68,18 @@ const DrawerComponent = () => {
           >
             <ListItemText>Services</ListItemText>
           </ListItem> */}
-          <ListItem>
-            <ListItemText>Sign in</ListItemText>
+          <ListItem
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(3);
+            }}
+            divider
+            button
+            component={MUILink}
+            href="https://fotoplusworld.app/"
+            selected={value === 3}
+          >
+            <ListItemText>Sign In</ListItemText>
           </ListItem>
         </List>
         <List>

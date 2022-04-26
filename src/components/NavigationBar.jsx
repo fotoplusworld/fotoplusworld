@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
-  Box,
   Button,
   Container,
-  Drawer,
   Menu,
   MenuItem,
   Link as MUILink,
-  ListItem,
   Paper,
   Tabs,
   Tab,
@@ -66,7 +63,7 @@ const NavigationBar = () => {
                 sx={{ marginLeft: "auto" }}
                 value={value}
                 onChange={(event, value) => setValue(value)}
-                indicatorColor="secondary"
+                indicatorColor="inherit"
               >
                 <Tab
                   label="Home"
@@ -89,12 +86,6 @@ const NavigationBar = () => {
                   to="/contact"
                 />
               </Tabs>
-              {/* <Tab
-                label="Services"
-                sx={{ textTransform: "none" }}
-                component={Link}
-                to="/services"
-              /> */}
               <Typography
                 color="grey.400"
                 sx={{

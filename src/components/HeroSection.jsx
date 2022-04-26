@@ -1,32 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardMedia,
-  Box,
-  Button,
-  Paper,
-  Grid,
-  Container,
-  Typography,
-} from "@mui/material";
-import { styled } from "@mui/system";
-import headerImage from "../assets/headerimg.png";
-
-// const MyComponent = styled('div')({
-//     color: 'darkslategray',
-//     backgroundColor: 'aliceblue',
-//     padding: 8,
-//     borderRadius: 4,
-//   });
-
-const CustomPaper = styled(Paper)({
-  height: "90vh",
-  background: `url(${headerImage})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  borderRadius: 0,
-});
+import { Box, Button, Paper, Grid, Container, Typography } from "@mui/material";
 
 const HeroSection = (props) => {
   return (
