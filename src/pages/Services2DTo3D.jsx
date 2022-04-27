@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography, Card, CardMedia } from "@mui/material";
+import { Box, Container, Card, CardMedia } from "@mui/material";
 import ServicesBanner from "../components/ServicesBanner";
 import FooterComponent from "../components/FooterComponent";
 import ServicesAboutBanner from "../components/ServicesAboutBanner";

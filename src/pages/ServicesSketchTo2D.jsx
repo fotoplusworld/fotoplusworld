@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardMedia,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Card, CardMedia, Box, Container } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ServicesBanner from "../components/ServicesBanner";
 import FooterComponent from "../components/FooterComponent";

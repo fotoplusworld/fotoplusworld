@@ -2,7 +2,6 @@ import React from "react";
 import headerImage from "../assets/headerimg2.png";
 import { Link } from "react-router-dom";
 import {
-  Avatar,
   Box,
   Button,
   Card,
@@ -11,9 +10,9 @@ import {
   Grid,
   Paper,
   Typography,
+  Link as MUILink,
 } from "@mui/material";
 import FooterComponent from "../components/FooterComponent";
-import BeforeAfterCardComponent from "../components/BeforeAfterCardComponent";
 import ServicesSummaryComponent from "../components/ServicesSummaryComponent";
 import HeroSection from "../components/HeroSection";
 import uneditedHouse1 from "../assets/unedited_house_1.jpg";
@@ -44,6 +43,8 @@ const Home = () => {
           variant="h2"
           image={headerImage}
           buttonText="Try it for free"
+          buttonComponent={MUILink}
+          buttonHref="https://fotoplusworld.app/"
         />
       </div>
       <Container sx={{ marginTop: "50px", marginBottom: "50px" }}>

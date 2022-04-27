@@ -36,6 +36,8 @@ const HeroSection = (props) => {
                   backgroundColor: "grey.50",
                   padding: "15px",
                 }}
+                component={props.buttonComponent}
+                href={props.buttonHref}
                 disableFocusRipple
                 disableRipple
               >

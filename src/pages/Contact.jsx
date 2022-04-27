@@ -62,7 +62,6 @@ const Contact = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
 
   return (
     <React.Fragment>
@@ -144,7 +143,7 @@ const Contact = () => {
                 color="text.primary"
                 gutterBottom
               >
-                Foto+
+                Fotoplus
               </Typography>
               <BoxContactComponent
                 icon={<LocationOnIcon sx={{ fontSize: 30, color: "#fff" }} />}
