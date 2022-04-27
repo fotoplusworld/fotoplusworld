@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fotoplusworld/static/css/main.92ea72f5.css",
-    "main.js": "/fotoplusworld/static/js/main.29b2a4b5.js",
+    "main.js": "/fotoplusworld/static/js/main.71029ab2.js",
     "static/js/787.454d30cd.chunk.js": "/fotoplusworld/static/js/787.454d30cd.chunk.js",
     "static/media/edited_house_1.jpg": "/fotoplusworld/static/media/edited_house_1.44ee79997ff9a4500890.jpg",
     "static/media/unedited_house_1.jpg": "/fotoplusworld/static/media/unedited_house_1.fe43764fd03c6f270ee1.jpg",
@@ -20,11 +20,11 @@
     "static/media/foto-plus-logo-white.png": "/fotoplusworld/static/media/foto-plus-logo-white.12a1b058383c1906065d.png",
     "index.html": "/fotoplusworld/index.html",
     "main.92ea72f5.css.map": "/fotoplusworld/static/css/main.92ea72f5.css.map",
-    "main.29b2a4b5.js.map": "/fotoplusworld/static/js/main.29b2a4b5.js.map",
+    "main.71029ab2.js.map": "/fotoplusworld/static/js/main.71029ab2.js.map",
     "787.454d30cd.chunk.js.map": "/fotoplusworld/static/js/787.454d30cd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92ea72f5.css",
-    "static/js/main.29b2a4b5.js"
+    "static/js/main.71029ab2.js"
   ]
 }
