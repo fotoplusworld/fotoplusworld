@@ -16,9 +16,11 @@ import {
   useTheme,
 } from "@mui/material";
 import DrawerComponent from "./DrawerComponent.jsx";
-import fotoplusLogo from "../assets/foto-plus-logo-white.png";
 
-const NavigationBar = () => {
+// Internationalization
+import { useTranslation } from "react-i18next";
+
+const NavigationBar = (props) => {
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -36,13 +38,28 @@ const NavigationBar = () => {
     setAnchorEl(null);
   };
 
+  const { t } = useTranslation();
+
+  const fotoplusLogo =
+    "https://ik.imagekit.io/jylqkautf/foto-plus-logo-white_-eCAaqLue.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652512123987";
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {isMatch ? (
             <>
-              <Typography>Foto+</Typography>
+              <Paper
+                component="img"
+                elevation={0}
+                src={fotoplusLogo}
+                alt="fotoplus-logo"
+                sx={{
+                  backgroundColor: "transparent",
+                  height: "50px",
+                  margin: "10px 10px 10px 20px",
+                }}
+              />
               <DrawerComponent />
             </>
           ) : (
@@ -66,24 +83,27 @@ const NavigationBar = () => {
                 indicatorColor="inherit"
               >
                 <Tab
-                  label="Home"
+                  label={t("home")}
                   sx={{ textTransform: "none" }}
                   component={Link}
                   to="/"
+                  aria-label="home"
                 />
 
                 <Tab
-                  label="About"
+                  label={t("about")}
                   sx={{ textTransform: "none" }}
                   component={Link}
                   to="/about"
+                  aria-label="about"
                 />
 
                 <Tab
-                  label="Contact Us"
+                  label={t("contact")}
                   sx={{ textTransform: "none" }}
                   component={Link}
                   to="/contact"
+                  aria-label="contact"
                 />
               </Tabs>
               <Typography
@@ -99,7 +119,7 @@ const NavigationBar = () => {
                 aria-expanded={openMenu ? "true" : undefined}
                 onClick={dropDownClick}
               >
-                Services
+                {t("services")}
               </Typography>
 
               <Menu
@@ -113,7 +133,7 @@ const NavigationBar = () => {
                   component={Link}
                   to="/services/image-enhancement"
                 >
-                  Image Enhancement
+                  {t("imageEnhancement")}
                 </MenuItem>
 
                 <MenuItem
@@ -121,7 +141,7 @@ const NavigationBar = () => {
                   component={Link}
                   to="/services/sketch-to-2d-floor-plan"
                 >
-                  Sketch Plan to 2D Floor Plan
+                  {t("sketchTo2DFloorPlan")}
                 </MenuItem>
 
                 <MenuItem
@@ -129,7 +149,7 @@ const NavigationBar = () => {
                   component={Link}
                   to="/services/virtual-staging"
                 >
-                  Virtual Staging
+                  {t("virtualStaging")}
                 </MenuItem>
 
                 <MenuItem
@@ -137,7 +157,7 @@ const NavigationBar = () => {
                   component={Link}
                   to="/services/2D-floor-plan-to-3D-floor-plan"
                 >
-                  2D Floor Plan to 3D Floor Plan
+                  {t("twoDToThreeDFloorPlan")}
                 </MenuItem>
 
                 <MenuItem
@@ -145,23 +165,15 @@ const NavigationBar = () => {
                   component={Link}
                   to="/services/item-removal"
                 >
-                  Item Removal
+                  {t("itemRemoval")}
                 </MenuItem>
 
                 <MenuItem
                   onClose={handleClose}
                   component={Link}
-                  to="/services/real-estate-virtual-assistant"
+                  to="/services/day-to-dusk"
                 >
-                  Real Estate Virtual Assistant
-                </MenuItem>
-
-                <MenuItem
-                  onClose={handleClose}
-                  component={Link}
-                  to="/services/web-design-and-development"
-                >
-                  Property Website Design and Development
+                  {t("dayToDusk")}
                 </MenuItem>
               </Menu>
 
@@ -172,7 +184,7 @@ const NavigationBar = () => {
                 component={MUILink}
                 href="https://fotoplusworld.app/"
               >
-                <Typography color="grey.900">Sign in</Typography>
+                <Typography color="grey.900"> {t("signIn")} </Typography>
               </Button>
             </>
           )}

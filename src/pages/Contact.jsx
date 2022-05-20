@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, Suspense } from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -16,8 +16,10 @@ import FooterComponent from "../components/FooterComponent";
 import BoxContactComponent from "../components/BoxContactComponent";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
+
+// Internationalization
+import { useTranslation } from "react-i18next";
 
 const schema = yup.object({
   name: yup.string().required("This field is required"),
@@ -29,6 +31,8 @@ const schema = yup.object({
 });
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -44,12 +48,12 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          alert("Success! We have received your message");
+          alert(`${t("contactSuccessAlert")}`);
           window.location.reload();
         },
         (error) => {
           console.log(error.text);
-          alert("Oops! Your message was not sent. Try again.");
+          alert(`${t("contactFailedAlert")}`);
           window.location.reload();
         }
       );
@@ -64,174 +68,166 @@ const Contact = () => {
   });
 
   return (
-    <React.Fragment>
-      <Box
-        sx={{
-          backgroundColor: "grey.900",
-          height: "70%",
-          paddingTop: 10,
-          paddingBottom: 10,
-        }}
-      >
-        <Container>
-          <Typography
-            variant="h2"
-            color="grey.50"
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              fontWeight: "100",
-            }}
-          >
-            Send us a message
-          </Typography>
-          <Grid container spacing={10} sx={{ marginTop: "10px" }}>
-            <Grid item lg={6}>
-              <Box
-                component="form"
-                ref={form}
-                onSubmit={handleSubmit(sendEmail)}
-              >
-                <TextField
-                  label="Name"
-                  name="name"
-                  fullWidth
-                  sx={{ marginBottom: "30px" }}
-                  {...register("name")}
-                  error={!!errors?.name}
-                  helperText={errors.name?.message}
-                />
-
-                <TextField
-                  label="Email address"
-                  name="email"
-                  fullWidth
-                  sx={{ marginBottom: "30px" }}
-                  {...register("email")}
-                  error={!!errors?.email}
-                  helperText={errors.email?.message}
-                />
-                <TextField
-                  label="Message"
-                  name="userMessage"
-                  fullWidth
-                  sx={{ marginBottom: "30px" }}
-                  multiline
-                  rows={5}
-                  maxRows={5}
-                  {...register("userMessage")}
-                  error={!!errors?.userMessage}
-                  helperText={errors.userMessage?.message}
-                />
-                <Button
-                  variant="contained"
-                  color="common"
-                  sx={{
-                    backgroundColor: "grey.50",
-                    padding: "50px, 25px",
-                  }}
-                  type="submit"
-                >
-                  Submit
-                </Button>
-              </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Typography
-                variant="h4"
-                component="h4"
-                color="text.primary"
-                gutterBottom
-              >
-                Fotoplus
-              </Typography>
-              <BoxContactComponent
-                icon={<LocationOnIcon sx={{ fontSize: 30, color: "#fff" }} />}
-                value={
-                  <Typography
-                    variant="body1"
-                    sx={{ fontSize: "20px", marginLeft: 3 }}
-                    color="common.white"
-                  >
-                    Manila
-                  </Typography>
-                }
-              />
-              <BoxContactComponent
-                icon={<PhoneIphoneIcon sx={{ fontSize: 30, color: "#fff" }} />}
-                value={
-                  <Typography
-                    variant="body1"
-                    sx={{ fontSize: "20px", marginLeft: 3 }}
-                    color="common.white"
-                  >
-                    +63 9xx xxxxxxx
-                  </Typography>
-                }
-              />
-              <BoxContactComponent
-                icon={<PhoneIcon sx={{ fontSize: 30, color: "#fff" }} />}
-                value={
-                  <Typography
-                    variant="body1"
-                    sx={{ fontSize: "20px", marginLeft: 3 }}
-                    color="common.white"
-                  >
-                    123456789
-                  </Typography>
-                }
-              />
-              <BoxContactComponent
-                icon={<EmailIcon sx={{ fontSize: 30, color: "#fff" }} />}
-                value={
-                  <Typography
-                    variant="body1"
-                    sx={{ fontSize: "20px", marginLeft: 3 }}
-                    color="common.white"
-                  >
-                    fotoplus971@gmail.com
-                  </Typography>
-                }
-              />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-      <Container sx={{ marginTop: "75px" }}>
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ marginBottom: "50px", fontWeight: "700" }}
+    <Suspense fallback={<div />}>
+      <React.Fragment>
+        <Box
+          sx={{
+            backgroundColor: "grey.900",
+            height: "70%",
+            paddingTop: 10,
+            paddingBottom: 10,
+          }}
         >
-          About
-        </Typography>
-        <Box sx={{ width: "100%", marginBottom: "30px" }}>
+          <Container>
+            <Typography
+              variant="h2"
+              color="grey.50"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                fontWeight: "100",
+              }}
+            >
+              {t("contactHeader")}
+            </Typography>
+            <Grid container spacing={10} sx={{ marginTop: "10px" }}>
+              <Grid item lg={6}>
+                <Box
+                  component="form"
+                  ref={form}
+                  onSubmit={handleSubmit(sendEmail)}
+                >
+                  <TextField
+                    label={t("formName")}
+                    name="name"
+                    fullWidth
+                    sx={{ marginBottom: "30px" }}
+                    {...register("name")}
+                    error={!!errors?.name}
+                    helperText={errors.name?.message}
+                  />
+
+                  <TextField
+                    label={t("formEmailAddress")}
+                    name="email"
+                    fullWidth
+                    sx={{ marginBottom: "30px" }}
+                    {...register("email")}
+                    error={!!errors?.email}
+                    helperText={errors.email?.message}
+                  />
+                  <TextField
+                    label={t("formMessage")}
+                    name="userMessage"
+                    fullWidth
+                    sx={{ marginBottom: "30px" }}
+                    multiline
+                    rows={5}
+                    maxRows={5}
+                    {...register("userMessage")}
+                    error={!!errors?.userMessage}
+                    helperText={errors.userMessage?.message}
+                  />
+                  <Button
+                    variant="contained"
+                    color="common"
+                    sx={{
+                      backgroundColor: "grey.50",
+                      padding: "50px, 25px",
+                    }}
+                    type="submit"
+                  >
+                    {t("submit")}
+                  </Button>
+                </Box>
+              </Grid>
+              <Grid item lg={6}>
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  FOTO+
+                </Typography>
+                <BoxContactComponent
+                  icon={<LocationOnIcon sx={{ fontSize: 30, color: "#fff" }} />}
+                  value={
+                    <Typography
+                      variant="body1"
+                      sx={{ fontSize: "20px", marginLeft: 3 }}
+                      color="common.white"
+                    >
+                      Unit 4b-24, 4th Floor City Avenue Building Port Saeed
+                      Deira, Dubai UAE
+                    </Typography>
+                  }
+                />
+                <BoxContactComponent
+                  icon={
+                    <PhoneIphoneIcon sx={{ fontSize: 30, color: "#fff" }} />
+                  }
+                  value={
+                    <Typography
+                      variant="body1"
+                      sx={{ fontSize: "20px", marginLeft: 3 }}
+                      color="common.white"
+                    >
+                      +971 4 557 1107
+                    </Typography>
+                  }
+                />
+                <BoxContactComponent
+                  icon={<EmailIcon sx={{ fontSize: 30, color: "#fff" }} />}
+                  value={
+                    <Typography
+                      variant="body1"
+                      sx={{ fontSize: "20px", marginLeft: 3 }}
+                      color="common.white"
+                    >
+                      fotoplus971@gmail.com
+                    </Typography>
+                  }
+                />
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+        <Container sx={{ marginTop: "75px" }}>
           <Typography
             variant="h4"
             component="div"
-            sx={{ lineHeight: "75px", textAlign: "left", fontWeight: "100" }}
+            sx={{ marginBottom: "50px", fontWeight: "700" }}
           >
-            In PhotoPlus, we are dedicated to providing excellent service to
-            you, our client, to win your condifence.
+            {t("about")}
           </Typography>
-        </Box>
-        <Button
-          component={Link}
-          to="/about"
-          sx={{
-            textTransform: "none",
-            "&:hover": { backgroundColor: "transparent" },
-          }}
-          disableRipple
-          disableFocusRipple
-        >
-          <Typography color="secondary.dark" variant="h5">
-            Learn more about us!
-          </Typography>
-        </Button>
-      </Container>
-      <FooterComponent marginTop="200px" />
-    </React.Fragment>
+          <Box sx={{ width: "100%", marginBottom: "30px" }}>
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{ lineHeight: "75px", textAlign: "left", fontWeight: "100" }}
+            >
+              {t("aboutText")}
+            </Typography>
+          </Box>
+          <Button
+            component={Link}
+            to="/about"
+            sx={{
+              textTransform: "none",
+              "&:hover": { backgroundColor: "transparent" },
+            }}
+            disableRipple
+            disableFocusRipple
+          >
+            <Typography color="grey.700" variant="h5">
+              {t("learnMore")}
+            </Typography>
+          </Button>
+        </Container>
+        <FooterComponent marginTop="200px" />
+      </React.Fragment>
+    </Suspense>
   );
 };
 

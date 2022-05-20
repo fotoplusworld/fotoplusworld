@@ -1,28 +1,101 @@
-import React from "react";
-import { Box, Container, Typography, Card, CardMedia } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { Suspense } from "react";
+import { Box, Container, Typography, Grid } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import WhatWeOfferSection from "../components/WhatWeOfferSection";
 import ServicesBanner from "../components/ServicesBanner";
-import ServicesAboutBanner from "../components/ServicesAboutBanner";
 import FooterComponent from "../components/FooterComponent";
-import uneditedHouse1 from "../assets/unedited_house_1.jpg";
-import editedHouse1 from "../assets/edited_house_1.jpg";
+import BeforeAfterCardComponent from "../components/BeforeAfterCardComponent";
 
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+const ServicesAboutBanner = React.lazy(() =>
+  import("../components/ServicesAboutBanner")
+);
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-
-const images = [uneditedHouse1, editedHouse1];
+const virtualStaging1Before =
+  "/virtual-staging/virtual-staging-1-before_NUwTd75giz.jpg";
+const virtualStaging1After =
+  "/virtual-staging/virtual-staging-1-after_iG-zNhmIve.jpg";
+const virtualStaging2Before =
+  "/virtual-staging/virtual-staging-2-before_CPbLwwMuz.jpg";
+const virtualStaging2After =
+  "/virtual-staging/virtual-staging-2-after_5jWMT2DeV.jpg";
+const virtualStaging3Before =
+  "/virtual-staging/virtual-staging-3-before_L4dBT4v98I.jpg";
+const virtualStaging3After =
+  "/virtual-staging/virtual-staging-3-after_uW6auiv8v.jpg";
+const virtualStaging4Before =
+  "/virtual-staging/virtual-staging-4-before_lhuEs4Dl8.jpg";
+const virtualStaging4After =
+  "/virtual-staging/virtual-staging-4-after_RfoExuGsS.jpg";
+const virtualStaging5Before =
+  "/virtual-staging/virtual-staging-5-before_Hi21zysWw.jpg";
+const virtualStaging5After =
+  "/virtual-staging/virtual-staging-5-after_AUTf7u7Uf.jpg";
 
 const ServicesVirtualStaging = () => {
+  const { t } = useTranslation();
+
   return (
-    <React.Fragment>
-      <ServicesBanner service="Virtual Staging" />
-      <Box>
+    <Suspense fallback={<div />}>
+      <React.Fragment>
+        <ServicesBanner service={t("virtualStaging")} />
+        <Container sx={{ marginBottom: "130px", marginTop: "50px" }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "center", marginBottom: 7 }}
+          >
+            <Typography component="p" variant="h4">
+              {t("virtualStagingMarketingHeader")}
+            </Typography>
+          </Box>
+          <Box>
+            <Grid
+              container
+              spacing={5}
+              sx={{ display: "flex", textAlign: "center" }}
+            >
+              <Grid item lg={6} md={12} xs={12}>
+                <Typography
+                  component="p"
+                  variant="h5"
+                  sx={{ fontWeight: "100" }}
+                >
+                  {t("attractBuyers")}
+                </Typography>
+              </Grid>
+              <Grid item lg={6} md={12} xs={12}>
+                <Typography
+                  component="p"
+                  variant="h5"
+                  sx={{ fontWeight: "100" }}
+                >
+                  {t("sellFaster")}
+                </Typography>
+              </Grid>
+
+              <Grid item lg={6} md={12} xs={12}>
+                <Typography
+                  component="p"
+                  variant="h5"
+                  sx={{ fontWeight: "100" }}
+                >
+                  {t("increaseSalePrice")}
+                </Typography>
+              </Grid>
+              <Grid item lg={6} md={12} xs={12}>
+                <Typography
+                  component="p"
+                  variant="h5"
+                  sx={{ fontWeight: "100" }}
+                >
+                  {t("addAesthetics")}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Container>
+
         <Container>
           <Typography
+            component="p"
             variant="h4"
             sx={{
               fontWeight: "100",
@@ -31,31 +104,69 @@ const ServicesVirtualStaging = () => {
               textAlign: "center",
             }}
           >
-            By including fashionable furnishings with your listing, you can
-            assist your client in visualizing their dream home.
+            {t("imageEnhancementStatement")}
           </Typography>
-          <Card>
-            <Swiper
-              slidesPerView={1}
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
-              grabCursor
-              keyboard={{ enabled: true }}
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              loop
-            >
-              {images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <CardMedia component="img" width="100%" image={image} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </Card>
+          <Suspense fallback={<div />}>
+            <Box sx={{ marginBottom: "70px" }}>
+              <BeforeAfterCardComponent
+                beforeImage={virtualStaging1Before}
+                altBeforeImage="virtual-staging-before-1"
+                afterImage={virtualStaging1After}
+                altAfterImage="virtual-staging-after-1"
+              />
+            </Box>
+          </Suspense>
+
+          <Suspense fallback={<div />}>
+            <Box sx={{ marginBottom: "70px" }}>
+              <BeforeAfterCardComponent
+                beforeImage={virtualStaging2Before}
+                altBeforeImage="virtual-staging-before-2"
+                afterImage={virtualStaging2After}
+                altAfterImage="virtual-staging-after-2"
+              />
+            </Box>
+          </Suspense>
+
+          <Suspense fallback={<div />}>
+            <Box sx={{ marginBottom: "70px" }}>
+              <BeforeAfterCardComponent
+                beforeImage={virtualStaging3Before}
+                altBeforeImage="virtual-staging-before-3"
+                afterImage={virtualStaging3After}
+                altAfterImage="virtual-staging-after-3"
+              />
+            </Box>
+          </Suspense>
+
+          <Suspense fallback={<div />}>
+            <Box sx={{ marginBottom: "70px" }}>
+              <BeforeAfterCardComponent
+                beforeImage={virtualStaging4Before}
+                altBeforeImage="virtual-staging-before-4"
+                afterImage={virtualStaging4After}
+                altAfterImage="virtual-staging-after-4"
+              />
+            </Box>
+          </Suspense>
+
+          <Suspense fallback={<div />}>
+            <Box sx={{ marginBottom: "70px" }}>
+              <BeforeAfterCardComponent
+                beforeImage={virtualStaging5Before}
+                altBeforeImage="virtual-staging-before-5"
+                afterImage={virtualStaging5After}
+                altAfterImage="virtual-staging-after-5"
+              />
+            </Box>
+          </Suspense>
         </Container>
-      </Box>
-      <ServicesAboutBanner />
-      <FooterComponent />
-    </React.Fragment>
+
+        <ServicesAboutBanner />
+        <WhatWeOfferSection />
+        <FooterComponent />
+      </React.Fragment>
+    </Suspense>
   );
 };
 

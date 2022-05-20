@@ -5,14 +5,17 @@ import FooterLinksComponent from "./FooterLinksComponent";
 import BoxContactComponent from "../components/BoxContactComponent";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
-import fotoplusLogo from "../assets/foto-plus-logo-white.png";
 
-// backgroundColor: "#ab47bc",
-// color="text.primary" white text
+// Internationalization
+import { useTranslation } from "react-i18next";
 
 const FooterComponent = (props) => {
+  const { t } = useTranslation();
+
+  const fotoplusLogo =
+    "https://ik.imagekit.io/jylqkautf/foto-plus-logo-white_-eCAaqLue.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652512123987";
+
   return (
     <Box
       sx={{
@@ -30,18 +33,24 @@ const FooterComponent = (props) => {
               color="white"
               sx={{ marginBottom: "10px" }}
             >
-              Link
+              {t("links")}
             </Typography>
-            <FooterLinksComponent component={Link} route="/" page="Home" />
             <FooterLinksComponent
+              name="home-route"
+              component={Link}
+              route="/"
+              page={t("home")}
+            />
+            <FooterLinksComponent
+              name="about-route"
               component={Link}
               route="/about"
-              page="About"
+              page={t("about")}
             />
             <FooterLinksComponent
               component={Link}
               route="/contact"
-              page="Contact"
+              page={t("contact")}
             />
           </Grid>
           <Grid item xs={12} lg={4}>
@@ -50,32 +59,44 @@ const FooterComponent = (props) => {
               color="white"
               sx={{ marginBottom: "10px" }}
             >
-              Services
+              {t("services")}
             </Typography>
+
             <FooterLinksComponent
               component={Link}
-              route="/services/real-estate-virtual-assistant"
-              page="Real Estate Virtual Assistant"
+              name="sketch-to-2d"
+              route="/services/sketch-to-2d-floor-plan"
+              page={t("sketchTo2DFloorPlan")}
             />
             <FooterLinksComponent
               component={Link}
+              name="2D-to-3D"
               route="/services/2D-floor-plan-to-3D-floor-plan"
-              page="2D Floor Plan to 3D Floor Plan"
+              page={t("twoDToThreeDFloorPlan")}
             />
             <FooterLinksComponent
               component={Link}
+              name="image-enhancement"
               route="/services/image-enhancement"
-              page="Image Enhancement"
+              page={t("imageEnhancement")}
             />
             <FooterLinksComponent
               component={Link}
+              name="virtual-staging"
               route="/services/virtual-staging"
-              page="Virtual Staging"
+              page={t("virtualStaging")}
             />
             <FooterLinksComponent
               component={Link}
+              name="item-removal"
               route="/services/item-removal"
-              page="Item Removal"
+              page={t("itemRemoval")}
+            />
+            <FooterLinksComponent
+              component={Link}
+              name="day-to-dusk"
+              route="/services/day-to-dusk"
+              page={t("dayToDusk")}
             />
           </Grid>
           <Grid item xs={12} lg={4}>
@@ -88,16 +109,18 @@ const FooterComponent = (props) => {
                 height: "50px",
                 marginBottom: "10px",
               }}
+              alt="fotoplus-logo"
             />
             <BoxContactComponent
               icon={<LocationOnIcon sx={{ fontSize: 30, color: "#fff" }} />}
               value={
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "20px", marginLeft: 3 }}
+                  sx={{ fontSize: "20px", marginLeft: 3, fontWeight: "100" }}
                   color="common.white"
                 >
-                  Manila
+                  Unit 4b-24, 4th Floor City Avenue Building Port Saeed Deira,
+                  Dubai UAE
                 </Typography>
               }
             />
@@ -106,22 +129,10 @@ const FooterComponent = (props) => {
               value={
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "20px", marginLeft: 3 }}
+                  sx={{ fontSize: "20px", marginLeft: 3, fontWeight: "100" }}
                   color="common.white"
                 >
-                  +63 9xx xxxxxxx
-                </Typography>
-              }
-            />
-            <BoxContactComponent
-              icon={<PhoneIcon sx={{ fontSize: 30, color: "#fff" }} />}
-              value={
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "20px", marginLeft: 3 }}
-                  color="common.white"
-                >
-                  123456789
+                  +971 4 557 1107
                 </Typography>
               }
             />
@@ -130,7 +141,7 @@ const FooterComponent = (props) => {
               value={
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "20px", marginLeft: 3 }}
+                  sx={{ fontSize: "20px", marginLeft: 3, fontWeight: "100" }}
                   color="common.white"
                 >
                   fotoplus971@gmail.com
@@ -143,7 +154,7 @@ const FooterComponent = (props) => {
           sx={{ display: "flex", justifyContent: "center", marginTop: "150px" }}
         >
           <Typography variant="body1" color="white" sx={{ fontWeight: 700 }}>
-            Fotoplus 2022
+            FOTO+ 2022
           </Typography>
         </Box>
       </Container>

@@ -10,9 +10,14 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
+// Internationalization
+import { useTranslation } from "react-i18next";
+
 const DrawerComponent = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [value, setValue] = useState(0);
+
+  const { t } = useTranslation();
 
   return (
     <React.Fragment>
@@ -29,7 +34,7 @@ const DrawerComponent = () => {
             to="/"
             selected={value === 0}
           >
-            <ListItemText>Home</ListItemText>
+            <ListItemText> {t("home")} </ListItemText>
           </ListItem>
           <ListItem
             onClick={() => {
@@ -42,7 +47,7 @@ const DrawerComponent = () => {
             to="/about"
             selected={value === 1}
           >
-            <ListItemText>About</ListItemText>
+            <ListItemText> {t("about")} </ListItemText>
           </ListItem>
           <ListItem
             onClick={() => {
@@ -55,19 +60,9 @@ const DrawerComponent = () => {
             to="/contact"
             selected={value === 2}
           >
-            <ListItemText>Contact us</ListItemText>
+            <ListItemText> {t("contact")} </ListItemText>
           </ListItem>
-          {/* <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(3);
-            }}
-            divider
-            button
-            selected={value === 3}
-          >
-            <ListItemText>Services</ListItemText>
-          </ListItem> */}
+
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
@@ -79,13 +74,14 @@ const DrawerComponent = () => {
             href="https://fotoplusworld.app/"
             selected={value === 3}
           >
-            <ListItemText>Sign In</ListItemText>
+            <ListItemText> {t("signIn")} </ListItemText>
           </ListItem>
         </List>
         <List>
           <ListItem>
-            <ListItemText>Services</ListItemText>
+            <ListItemText> {t("services")} </ListItemText>
           </ListItem>
+
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
@@ -94,10 +90,10 @@ const DrawerComponent = () => {
             divider
             button
             component={Link}
-            to="/services/real-estate-virtual-assistant"
+            to="/services/image-enhancement"
             selected={value === 4}
           >
-            <ListItemText>Real Estate Virtual Assistant</ListItemText>
+            <ListItemText> {t("imageEnhancement")} </ListItemText>
           </ListItem>
 
           <ListItem
@@ -108,10 +104,10 @@ const DrawerComponent = () => {
             divider
             button
             component={Link}
-            to="/services/2D-floor-plan-to-3D-floor-plan"
+            to="/services/sketch-to-2d-floor-plan"
             selected={value === 5}
           >
-            <ListItemText>2D Floor Plan to 3D Floor Plan</ListItemText>
+            <ListItemText> {t("sketchTo2DFloorPlan")} </ListItemText>
           </ListItem>
 
           <ListItem
@@ -122,10 +118,10 @@ const DrawerComponent = () => {
             divider
             button
             component={Link}
-            to="/services/image-enhancement"
+            to="/services/2D-floor-plan-to-3D-floor-plan"
             selected={value === 6}
           >
-            <ListItemText>2D Floor Plan to 3D Floor Plan</ListItemText>
+            <ListItemText> {t("twoDToThreeDFloorPlan")} </ListItemText>
           </ListItem>
 
           <ListItem
@@ -139,7 +135,7 @@ const DrawerComponent = () => {
             to="/services/virtual-staging"
             selected={value === 7}
           >
-            <ListItemText>Virtual Staging</ListItemText>
+            <ListItemText> {t("virtualStaging")} </ListItemText>
           </ListItem>
 
           <ListItem
@@ -153,41 +149,29 @@ const DrawerComponent = () => {
             to="/services/item-removal"
             selected={value === 8}
           >
-            <ListItemText>Item Removal</ListItemText>
+            <ListItemText> {t("itemRemoval")} </ListItemText>
           </ListItem>
 
           <ListItem
             onClick={() => {
               setOpenDrawer(false);
-              setValue(9);
+              setValue(5);
             }}
             divider
             button
             component={Link}
-            to="/services/sketch-to-2d-floor-plan"
-            selected={value === 9}
+            to="/services/day-to-dusk"
+            selected={value === 5}
           >
-            <ListItemText>Sketch to 2D Floor Plan</ListItemText>
-          </ListItem>
-
-          <ListItem
-            onClick={() => {
-              setOpenDrawer(false);
-              setValue(10);
-            }}
-            divider
-            button
-            component={Link}
-            to="/services/web-design-and-development"
-            selected={value === 10}
-          >
-            <ListItemText>Web Design and Development</ListItemText>
+            <ListItemText> {t("dayToDusk")} </ListItemText>
           </ListItem>
         </List>
       </Drawer>
       <IconButton
         sx={{ color: "white", marginLeft: "auto" }}
         onClick={() => setOpenDrawer(!openDrawer)}
+        name="menu-button"
+        aria-label="menu-button"
       >
         <MenuIcon />
       </IconButton>

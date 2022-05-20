@@ -5,6 +5,7 @@ const FooterLinksComponent = (props) => {
   return (
     <Box>
       <Button
+        name={props.name}
         component={props.component}
         to={props.route}
         sx={{

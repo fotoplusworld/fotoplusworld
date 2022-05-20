@@ -1,60 +1,73 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Container, Box, Typography } from "@mui/material";
 import FooterComponent from "../components/FooterComponent";
-import HeroSection from "../components/HeroSection";
-import testimonialBanner from "../assets/meeting.png";
+
+// Internationalization
+import { useTranslation } from "react-i18next";
+
+const HeroSection = React.lazy(() => import("../components/HeroSection"));
+const ServicesAboutBanner = React.lazy(() =>
+  import("../components/ServicesAboutBanner")
+);
 
 const About = () => {
+  const { t } = useTranslation();
+
+  const testimonialBanner =
+    "https://ik.imagekit.io/jylqkautf/meeting_1AHMtWpRT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1652515808127";
+
   return (
     <React.Fragment>
-      <Container sx={{ marginTop: 15, marginBottom: 20 }}>
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ marginBottom: "50px", fontWeight: "700" }}
-        >
-          About
-        </Typography>
-        <Box sx={{ width: "100%" }}>
+      <Suspense fallback={<div />}>
+        <Container sx={{ marginTop: 15, marginBottom: 20 }}>
           <Typography
             variant="h4"
             component="div"
-            sx={{ lineHeight: "75px", textAlign: "left", fontWeight: "100" }}
+            sx={{ marginBottom: "50px", fontWeight: "700" }}
           >
-            In PhotoPlus, we are dedicated to providing excellent service to
-            you, our client, to win your condifence.
+            {t("about")}
           </Typography>
-        </Box>
-      </Container>
-      <HeroSection
-        height="70vh"
-        image={testimonialBanner}
-        component="h2"
-        variant="h3"
-        headerText="Testomial here"
-        display="none"
-      />
-      <Container sx={{ marginTop: 15, marginBottom: 20 }}>
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ marginBottom: "50px", fontWeight: "700" }}
-        >
-          Mission
-        </Typography>
-        <Box sx={{ width: "100%" }}>
+          <Box sx={{ width: "100%" }}>
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{ lineHeight: "75px", textAlign: "left", fontWeight: "100" }}
+            >
+              {t("aboutText")}
+            </Typography>
+          </Box>
+        </Container>
+        <Suspense fallback={<div />}>
+          <HeroSection
+            height="70vh"
+            image={testimonialBanner}
+            component="h2"
+            variant="h3"
+            headerText={t("testimonialStatement")}
+            display="none"
+          />
+        </Suspense>
+        <Container sx={{ marginTop: 15, marginBottom: 20 }}>
           <Typography
             variant="h4"
             component="div"
-            sx={{ lineHeight: "75px", textAlign: "left", fontWeight: "100" }}
+            sx={{ marginBottom: "50px", fontWeight: "700" }}
           >
-            Our mission is to be able to assist both photographers and realtors
-            so that we can become forerunners in the real estate visual media
-            sector when it comes to the use of technology.
+            {t("mission")}
           </Typography>
-        </Box>
-      </Container>
-      <FooterComponent marginTop="200px" />
+          <Box sx={{ width: "100%" }}>
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{ lineHeight: "75px", textAlign: "left", fontWeight: "100" }}
+            >
+              {t("missionStatement")}
+            </Typography>
+          </Box>
+        </Container>
+        <ServicesAboutBanner />
+        <FooterComponent />
+      </Suspense>
     </React.Fragment>
   );
 };
